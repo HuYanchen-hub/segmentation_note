@@ -15,12 +15,12 @@ python datasets/panoptic2detection_coco_format.py --things_only
 
 下载了coco/150_16_swin_l_oneformer_coco_100ep.pth官方训练好的模型推理，精度基本一致
 
-|  Method   | Backbone |  PQ  | PQTh |   PQSt   |  AP  | mIoU | #params |                            config                            |                          Checkpoint                          |
-| :-------: | :------: | :--: | :--: | :------: | :--: | :--: | :-----: | :----------------------------------------------------------: | :----------------------------------------------------------: |
-| OneFormer | Swin-L†  | 57.9 | 64.4 |   48.0   | 49.0 | 67.4 |  219M   | [config](./configs/coco/swin/oneformer_swin_large_bs16_100ep.yaml) | [model](https://shi-labs.com/projects/oneformer/coco/150_16_swin_l_oneformer_coco_100ep.pth) |
-|           |          | 57.9 | 64.4 |   48.0   | 49.0 | 67.2 |         |                                                              |                                                              |
-| OneFormer | DiNAT-L† | 58.0 | 64.3 |   48.4   | 49.2 | 68.1 |  223M   | [config](https://github.com/SHI-Labs/OneFormer/blob/main/configs/coco/dinat/oneformer_dinat_large_bs16_100ep.yaml) | [model](https://shi-labs.com/projects/oneformer/coco/150_16_dinat_l_oneformer_coco_100ep.pth) |
-|           |          | 58.0 | 64.3 | **48.3** | 49.2 | 68.1 |         |                                                              |                                                              |
+|  Method   | Backbone |  PQ  | PQTh |   PQSt   |  AP  |   mIoU   | #params |                            config                            |                          Checkpoint                          |
+| :-------: | :------: | :--: | :--: | :------: | :--: | :------: | :-----: | :----------------------------------------------------------: | :----------------------------------------------------------: |
+| OneFormer | Swin-L†  | 57.9 | 64.4 |   48.0   | 49.0 |   67.4   |  219M   | [config](./configs/coco/swin/oneformer_swin_large_bs16_100ep.yaml) | [model](https://shi-labs.com/projects/oneformer/coco/150_16_swin_l_oneformer_coco_100ep.pth) |
+|           |          | 57.9 | 64.4 |   48.0   | 49.0 | **67.2** |         |                                                              |                                                              |
+| OneFormer | DiNAT-L† | 58.0 | 64.3 |   48.4   | 49.2 |   68.1   |  223M   | [config](https://github.com/SHI-Labs/OneFormer/blob/main/configs/coco/dinat/oneformer_dinat_large_bs16_100ep.yaml) | [model](https://shi-labs.com/projects/oneformer/coco/150_16_dinat_l_oneformer_coco_100ep.pth) |
+|           |          | 58.0 | 64.3 | **48.3** | 49.2 |   68.1   |         |                                                              |                                                              |
 
 ### 2. 数据加载
 
