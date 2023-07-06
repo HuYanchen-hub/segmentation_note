@@ -77,4 +77,56 @@ ViT    blocks 8， 16， 32
 ![|350](https://huyanchen-1315211807.cos.ap-beijing.myqcloud.com/images/202307061946302.png)
 
 
-## 2. 
+## 2. Mask2Former
+https://bowenc0221.github.io/mask2former
+==masked attention==   将注意力限制在以预测片段为中心的局部特征上，这些特征可以是对象，也可以是区域
+==multi-scale high-resolution features==
+==optimization improvements== 
+> 切换自注意力和交叉注意力的顺序
+> 使查询特征具有可学习性
+> 去除dropout
+==calculating mask loss on few randomly sampled points==
+
+### 3. Masked-attention Mask Transformer
+
+#### 3.1 Mask classification preliminaries
+	backbone
+	pixel decoder
+	Transformer decoder
+
+#### 3.2 Transformer decoder with masked attention
+
+![image.png](https://huyanchen-1315211807.cos.ap-beijing.myqcloud.com/images/202307062311204.png)
+
+##### 3.2.1 Masked attention
+然而，最近的研究[ 22、46]表明，基于Transformer的模型的缓慢收敛是由于交叉注意力层中的全局上下文，因为交叉注意力需要许多训练时间来学习局部化的对象区域
+--------------------------------------------------->
+我们假设局部特征足以更新查询特征，上下文信息可以通过自注意力收集
+![image.png](https://huyanchen-1315211807.cos.ap-beijing.myqcloud.com/images/202307062322716.png)
+送入decoder前利用$X_0$阈值0.5得到一个二值预测$M_0$
+
+##### 3.2.2 High-resolution features
+不总是使用高分辨率的特征图，使用由低分辨率和高分辨率特征组成的特征金字塔，每次将多尺度特征的一个分辨率输入到Transformer解码器层。
+
+加position embedding(正弦)和level embedding(可学习)
+
+##### 3.2.3 Optimization improvements
+	标准Transformer Decoder：自注意力模块、交叉注意力和前馈网络( FFN )。
+	查询特征($X_0$)在输入Transformer解码器之前被初始化为零，并与可学习的位置嵌入相关
+* 切换自注意力和交叉注意力的顺序
+* 使查询特征具有可学习性
+> ==在Transformer解码器中使用可学习的查询特征$X_0$来预测掩码( M0 )之前，直接对其进行监督
+> （加额外损失，用标签监督？？？）
+* 去除dropout
+
+#### 3.3. Improving training efficiency
+更具体地说，在构造用于二部匹配的代价矩阵的匹配损失中，我们对所有预测和真实掩码统一采样同一组K点。
+在预测和其匹配的真值之间的最终损失中，我们使用`importance sampling`为不同的预测和真值对采样不同的K点集。
+K = 12244 = 112x112
+
+
+## 3. X-Detector
+
+
+## 4. Universal Instance Perception as Object Discovery and Retrieval
+https://github.com/MasterBin-IIAU/UNINEXT
