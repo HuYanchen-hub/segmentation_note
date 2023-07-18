@@ -69,8 +69,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200,
-    "collapsed": true
+    "width": 200
   },
   "right": {
     "id": "2671b587e8b3ea3d",
@@ -149,8 +148,8 @@
   },
   "active": "d7f5f99ca4eba022",
   "lastOpenFiles": [
-    "Pasted image 20230706165846.png",
     "Segmentation_survey.md",
-    "Segmentation.md"
+    "Segmentation.md",
+    "Pasted image 20230706165846.png"
   ]
 }
